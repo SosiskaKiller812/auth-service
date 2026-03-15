@@ -3,7 +3,6 @@ package com.marketplace.auth.controller;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +17,6 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @AllArgsConstructor
 @RequestMapping("/auth")
@@ -53,17 +51,6 @@ public class AuthController {
 
     String refreshToken = authorizationHeader.substring(7);
     return ResponseEntity.status(HttpStatus.OK).body(authService.refreshToken(refreshToken));
-  }
-
-  @GetMapping("/hello")
-  public ResponseEntity<String> hello() {
-    return ResponseEntity.ok("Hello User");
-  }
-
-  @GetMapping("/admin")
-  @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<String> helloA() {
-    return ResponseEntity.ok("Hello Admin");
   }
 
 }
