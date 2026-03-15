@@ -5,15 +5,17 @@ REST API is a Java + Spring Boot application for controll users.
 ## Flow for User Registration and User Login
 For JWT – Token based Authentication with Web API, we’re gonna call 3 endpoints:
 
-POST auth/signup for User Registration
-POST auth/signin for User Login
-POST auth/refresh for User Refresh token
+- POST `auth/signup` for User Registration
+- POST `auth/signin` for User Login
+- POST `auth/refresh` for User Refresh token
 
-## The project implements the basic architecture of a server application using:
+## Technologies in project:
 
 - Spring Boot
 - Spring Web
 - Spring Data JPA
+- JWT
+- Liqubase
 - Relational database(postgres)
 - DTO and mapper
 - Layered architecture (Controller → Service → Repository)
